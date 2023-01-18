@@ -11,19 +11,8 @@ sd_tobit(...)
   Arguments passed on to \code{\link[=mean_tobit]{mean_tobit}}
   \describe{
     \item{\code{x}}{A numeric vector}
-    \item{\code{lower}}{The lower and upper bounds for censoring \code{x}}
-    \item{\code{upper}}{The lower and upper bounds for censoring \code{x}}
-    \item{\code{include_equal}}{Should the
-bounds consider \code{x <= lower} and \code{x >= upper} (if \code{TRUE}) or
-\code{x < lower} and \code{x > upper} (if \code{FALSE}) to be censored?
-(\code{include_equal} is overridden by setting \code{include_equal_lower}
-or \code{include_equal_upper}.)}
-    \item{\code{include_equal_lower}}{Should the
-bounds consider \code{x <= lower} and \code{x >= upper} (if \code{TRUE}) or
-\code{x < lower} and \code{x > upper} (if \code{FALSE}) to be censored?
-(\code{include_equal} is overridden by setting \code{include_equal_lower}
-or \code{include_equal_upper}.)}
-    \item{\code{include_equal_upper}}{Should the
+    \item{\code{lower,upper}}{The lower and upper bounds for censoring \code{x}}
+    \item{\code{include_equal,include_equal_lower,include_equal_upper}}{Should the
 bounds consider \code{x <= lower} and \code{x >= upper} (if \code{TRUE}) or
 \code{x < lower} and \code{x > upper} (if \code{FALSE}) to be censored?
 (\code{include_equal} is overridden by setting \code{include_equal_lower}

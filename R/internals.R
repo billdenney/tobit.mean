@@ -1,10 +1,11 @@
 # Internal calculation functions ####
 
-
 #' Estimate the log-likelihood for the gamma/delta transformed convex parameters
 #' for tobit regression
 #'
-#' @details \code{beta = delta/gamma} and \code{sigma^2 = gamma^-2}.  The estimation is based on
+#' @details \code{beta = delta/gamma} and \code{sigma^2 = gamma^-2}.  The
+#'   estimation is based on the convex reformulation of the likelihood function
+#'   described in Olsen 1978.
 #'
 #' @param param c(gamma, delta) see details
 #' @param x The vector of values
@@ -15,7 +16,7 @@
 #' @references Olsen RJ. Note on the Uniqueness of the Maximum Likelihood
 #'   Estimator for the Tobit Model. Econometrica. 1978;46(5):1211.
 #'   doi:10.2307/1911445
-#' @noRd
+#' @keywords Internal
 negLogLik_tobit <- function(param, x,
                             lower_limit, upper_limit,
                             mask_lower, mask_between, mask_upper,

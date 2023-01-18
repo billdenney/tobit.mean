@@ -36,7 +36,7 @@ test_that("negLogLik_tobit", {
       x=1:2, lower_limit=1:2, upper_limit=3:4,
       mask_lower=c(FALSE, TRUE), mask_between=c(FALSE, TRUE), mask_upper=c(FALSE, TRUE)
     ),
-    regexp="All values must be caught by mask_upper, mask_between, or mask_upper"
+    regexp="mask_upper, mask_between, and mask_upper may not overlap"
   )
   expect_error(
     negLogLik_tobit(
@@ -58,18 +58,19 @@ test_that("negLogLik_tobit", {
   )
   expect_equal(
     negLogLik_tobit(
-      param=c(1, log(2)),
+      param=c(2, 3),
       x=1:3,
       lower_limit=rep(1.5, 3), upper_limit=rep(4, 3),
       mask_lower=c(TRUE, FALSE, FALSE),
       mask_between=c(FALSE, TRUE, FALSE),
-      mask_upper=c(FALSE, FALSE, TRUE)
+      mask_upper=c(FALSE, FALSE, TRUE),
+      distribution="t"
     ),
     -sum(
       c(
-        dt((2 - 1)/2, df=3, log=TRUE),
-        pt((1.5 - 1)/2, df=3, log.p=TRUE),
-        pt((1 - 4)/2, df=3, log.p=TRUE)
+        log(2) + dt(exp(2)*2 - 3, df=3, log=TRUE),
+        pt(exp(2)*1.5 - 3, df=3, log.p=TRUE),
+        pt(exp(2)*4-3, df=3, log.p=TRUE)
       )
     )
   )

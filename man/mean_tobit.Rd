@@ -49,6 +49,8 @@ stripped from \code{x} before the computation proceeds.}
    candidate point.  If it is \code{NULL} a default Gaussian Markov
    kernel is used.}
     \item{\code{method}}{The method to be used. See \sQuote{Details}.  Can be abbreviated.}
+    \item{\code{lower,upper}}{Bounds on the variables for the \code{"L-BFGS-B"}
+   method, or bounds in which to \emph{search} for method \code{"Brent"}.}
     \item{\code{control}}{a \code{\link{list}} of control parameters.  See \sQuote{Details}.}
     \item{\code{hessian}}{Logical. Should a numerically differentiated Hessian
    matrix be returned?}
